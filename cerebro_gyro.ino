@@ -1,34 +1,15 @@
-#include <HardWire.h>
-//#include <Wire_slave.h>
-
-//#include <SoftWire.h> //
-//#include <HWire.h>
-//#include <Wire_slave.h>
-
-///////////////////////////////////////////////////////////////////////////////////////
-//Terms of use
-///////////////////////////////////////////////////////////////////////////////////////
-//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//THE SOFTWARE.
 ///////////////////////////////////////////////////////////////////////////////////////
 //Safety note
 ///////////////////////////////////////////////////////////////////////////////////////
 //Always remove the propellers and stay away from the motors unless you
 //are 100% certain of what you are doing.
 ///////////////////////////////////////////////////////////////////////////////////////
-//#include <Wire.h>
+#include <Wire.h>
+
+#define HWire Wire
 
 //HardWire HWire(2, I2C_FAST_MODE);
-HardWire HWire (2, I2C_FAST_MODE);
-
-//Let's declare some variables so we can use them in the complete program.
-//int16_t = signed 16 bit integer
-//uint16_t = unsigned 16 bit integer
+/* HardWire HWire (2, I2C_FAST_MODE); */
 uint8_t disable_throttle, flip32;
 uint8_t error;
 uint32_t loop_timer;
@@ -69,7 +50,7 @@ void setup() {
   pinMode(4, INPUT_ANALOG);
   //Port PB3 and PB4 are used as JTDO and JNTRST by default.
   //The following function connects PB3 and PB4 to the alternate output function.
-  afio_cfg_debug_ports(AFIO_DEBUG_SW_ONLY);                     //Connects PB3 and PB4 to output function.
+  /* afio_cfg_debug_ports(AFIO_DEBUG_SW_ONLY);                     //Connects PB3 and PB4 to output function. */
 
   //On the Flip32 the LEDs are connected differently. A check is needed for controlling the LEDs.
   pinMode(PB3, INPUT);                                         //Set PB3 as input.
