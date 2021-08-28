@@ -107,16 +107,16 @@ void loop() {
   }
 
   if (!disable_throttle) {                                      //If the throttle is not disabled.
-    TIMER4_BASE->CCR1 = channel_3;                              //Set the throttle receiver input pulse to the ESC 1 output pulse.
-    TIMER4_BASE->CCR2 = channel_3;                              //Set the throttle receiver input pulse to the ESC 2 output pulse.
-    TIMER4_BASE->CCR3 = channel_3;                              //Set the throttle receiver input pulse to the ESC 3 output pulse.
-    TIMER4_BASE->CCR4 = channel_3;                              //Set the throttle receiver input pulse to the ESC 4 output pulse.
+    TIM4_BASE->CCR1 = channel_3;                              //Set the throttle receiver input pulse to the ESC 1 output pulse.
+    TIM4_BASE->CCR2 = channel_3;                              //Set the throttle receiver input pulse to the ESC 2 output pulse.
+    TIM4_BASE->CCR3 = channel_3;                              //Set the throttle receiver input pulse to the ESC 3 output pulse.
+    TIM4_BASE->CCR4 = channel_3;                              //Set the throttle receiver input pulse to the ESC 4 output pulse.
   }
   else {                                                        //If the throttle is disabled
-    TIMER4_BASE->CCR1 = 1000;                                   //Set the ESC 1 output to 1000us to disable the motor.
-    TIMER4_BASE->CCR2 = 1000;                                   //Set the ESC 2 output to 1000us to disable the motor.
-    TIMER4_BASE->CCR3 = 1000;                                   //Set the ESC 3 output to 1000us to disable the motor.
-    TIMER4_BASE->CCR4 = 1000;                                   //Set the ESC 4 output to 1000us to disable the motor.
+    TIM4_BASE->CCR1 = 1000;                                   //Set the ESC 1 output to 1000us to disable the motor.
+    TIM4_BASE->CCR2 = 1000;                                   //Set the ESC 2 output to 1000us to disable the motor.
+    TIM4_BASE->CCR3 = 1000;                                   //Set the ESC 3 output to 1000us to disable the motor.
+    TIM4_BASE->CCR4 = 1000;                                   //Set the ESC 4 output to 1000us to disable the motor.
   }
 
   if (data == 'a') {
